@@ -1,0 +1,83 @@
+.SearchArea {
+  display: flex;
+  background-color: #313131;
+  padding: 24px 10% 16px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &__Left {
+    color: #ffffff;
+
+    padding-left: 20px;
+    width: 50%;
+
+    @media screen and (max-width: 768px) {
+      padding-left: 10px;
+      width: 100%;
+    }
+  }
+
+  &__Title {
+    font-size: 28px;
+    margin: 0;
+  }
+
+  &__Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+  }
+
+  &__Icon {
+    font-size: 18px;
+
+    background-color: #ee6b2f;
+    margin-right: 20px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &__AutoComplete {
+    width: calc(85% - 30px);
+    border: 3px solid #656565;
+    border-radius: 6px;
+
+    input {
+      font-size: 16px;
+      border-radius: 4px;
+      line-height: 35px;
+      text-transform: capitalize;
+    }
+  }
+
+  &__Right {
+    width: 50%;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  &__Instructions {
+    font-size: 20px;
+    color: white;
+
+    margin: 0 20px;
+    padding: 15px 10px 23px 20px;
+    border-radius: 5px;
+    background-color: #4dad5b;
+    transition: background-color 0.1s linear;
+
+    @media screen and (max-width: 768px) {
+      margin: 10px;
+
+      font-size: 18px;
+      line-height: 1.2;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+$types: (
+  "bug" #729f3f null #fff,
+  "dragon" #53a4cf #f16e57 #fff,
+  "fairy" #fdb9e9 null #212121,
+  "fire" #fd7d24 null #fff,
+  "ghost" #7b62a3 null #fff,
+  "ground" #f7de3f #ab9842,
+  "normal" #a4acaf,
+  "psychic" #f366b9 null #fff,
+  "steel" #9eb7b8,
+  "dark" #707070 null #fff,
+  "electric" #eed535,
+  "fighting" #d56723 null #fff,
+  "flying" #3dc7ef #bdb9b8,
+  "grass" #9bcc50,
+  "ice" #51c4e7,
+  "poison" #b97fc9 null #fff,
+  "rock" #a38c21 null #fff,
+  "water" #4592c4 null #fff
+);
+
+.PokemonCard {
+  width: calc((100% - 45px) / 4);
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 30px;
+    width: 90%;
+  }
+
+  &:not(:nth-child(4n-3)) {
+    margin-left: 15px;
+
+    @media screen and (max-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
+  &:hover {
+    animation: cardAnim 0.1s ease-out;
+  }
+
+  img {
+    background-color: #f2f2f2;
+    width: 100%;
+    border-radius: 5px;
+
+    cursor: pointer;
+  }
+
+  &__Info {
+    padding-left: 15px;
+  }
+
+  &__Number {
+    color: #919191;
+    font-size: 14px;
+    font-weight: 600;
+
+    margin: 0;
+  }
+
+  &__Name {
+    color: #313131;
+    font-size: 24px;
+    font-weight: 600;
+
+    margin-top: 12px;
+    margin-bottom: 5px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__Type {
+    display: inline-block;
+
+    text-align: center;
+    text-transform: capitalize;
+    line-height: 18px;
+    font-size: 11px;
+
+    width: 37%;
+    max-width: 110px;
+    margin-right: 3px;
+    border-radius: 3px;
+    background-color: #a4acaf;
+    color: #212121;
+
+    @each $name, $background1, $background2, $color in $types {
+      &:global(.#{$name}) {
+        @if ($background2) {
+          background: linear-gradient(
+            180deg,
+            $background1 50%,
+            $background2 50%
+          );
+        }
+        background-color: $background1;
+        color: $color;
+      }
+    }
+  }
+}
+
+@keyframes cardAnim {
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
